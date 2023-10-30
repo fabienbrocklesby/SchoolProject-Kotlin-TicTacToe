@@ -1,3 +1,4 @@
+// Main function which runs on start and calls other functions in order to complete neccessary operations to make the game run
 fun main() {
     val board = Array(3) { Array(3) { ' ' } }
     var currentPlayer = 'X'
@@ -26,6 +27,7 @@ fun main() {
     }
 }
 
+// Function to display the current state of the game board.
 fun printBoard(board: Array<Array<Char>>) {
     println("-------------")
     for (i in board.indices) {
@@ -39,6 +41,7 @@ fun printBoard(board: Array<Array<Char>>) {
     }
 }
 
+// Function to get the player's move and ensure it's valid.
 fun getPlayerMove(player: Char, board: Array<Array<Char>>): Pair<Int, Int> {
     while (true) {
         println("$player's turn. Enter cell number (1-9):")
@@ -56,6 +59,7 @@ fun getPlayerMove(player: Char, board: Array<Array<Char>>): Pair<Int, Int> {
     }
 }
 
+// Function to check if the current player has won the game.
 fun checkWin(board: Array<Array<Char>>, player: Char): Boolean {
     for (i in 0 until 3) {
         if (board[i][0] == player && board[i][1] == player && board[i][2] == player) return true
@@ -66,6 +70,8 @@ fun checkWin(board: Array<Array<Char>>, player: Char): Boolean {
     return false
 }
 
+
+// Function to check if the game board is full, resulting in a draw.
 fun isBoardFull(board: Array<Array<Char>>): Boolean {
     for (row in board) {
         for (cell in row) {
